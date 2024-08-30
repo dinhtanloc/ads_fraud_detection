@@ -1,7 +1,0 @@
-*.csv filter=lfs diff=lfs merge=lfs -text
-data/ieee-fraud-detection/test_transaction.csv filter=lfs diff=lfs merge=lfs -text
-data/ieee-fraud-detection/train_transaction.csv filter=lfs diff=lfs merge=lfs -text
-data/archive[[:space:]](3)/fraudTest.csv filter=lfs diff=lfs merge=lfs -text
-data/archive[[:space:]](3)/fraudTrain.csv filter=lfs diff=lfs merge=lfs -text
-data/creditcard/creditcard.csv filter=lfs diff=lfs merge=lfs -text
-*.xlsx filter=lfs diff=lfs merge=lfs -text
