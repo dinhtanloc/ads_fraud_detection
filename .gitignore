@@ -2,3 +2,5 @@
 *.csv
 *.xlsx
 *.txt
+.history
+__pyache__
