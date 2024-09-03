@@ -226,3 +226,45 @@ from sklearn.ensemble import RandomForestClassifier, VotingClassifier
 from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import precision_score, recall_score, confusion_matrix, classification_report, roc_curve, precision_recall_curve
 import warnings
+
+
+import  numpy as np
+import  pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import re
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.stem import PorterStemmer, WordNetLemmatizer
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+from keras.preprocessing.text import Tokenizer
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.model_selection import train_test_split,GridSearchCV,RandomizedSearchCV
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score,recall_score, f1_score, confusion_matrix,precision_score
+from scipy.sparse import hstack,csr_matrix
+from wordcloud import WordCloud
+from spacy.lang.en.stop_words import STOP_WORDS
+import spacy
+from sklearn.pipeline import Pipeline, FeatureUnion
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.svm import LinearSVC
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import FunctionTransformer
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Embedding, LSTM, Dropout,Input
+from sklearn import preprocessing
+from tensorflow.keras.models import Model
+import scipy.sparse as sp
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.svm import SVC
+from sklearn.ensemble import GradientBoostingClassifier
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+from gensim.models.doc2vec import Doc2Vec, TaggedDocument
+from sklearn.preprocessing import LabelEncoder
+import pickle
+from sklearn.model_selection import learning_curve,cross_val_score
+from keras.models import Sequential
+from keras.layers import Dense, Dropout
