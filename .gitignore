@@ -3,4 +3,7 @@
 *.xlsx
 *.txt
 .history
-__pyache__                  
+__pyache__
+*.joblib
+*.h5
+*.keras
