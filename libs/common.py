@@ -237,7 +237,7 @@ import nltk
 from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer, WordNetLemmatizer
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
-from keras.preprocessing.text import Tokenizer
+# from keras.preprocessing.text import Tokenizer
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split,GridSearchCV,RandomizedSearchCV
 from sklearn.linear_model import LogisticRegression
