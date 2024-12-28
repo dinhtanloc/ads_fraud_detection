@@ -7,7 +7,8 @@ class VGG16_1D:
         self.learning_rate = learning_rate
         self.kernel_size = kernel_size
         self.filter_size = filter_size
-        self.feaatures = None
+        self.features = None
+        self.summary = self.build_model().summary()
     
     def build_model(self):
         x_input = Input(shape=self.input_shape)
