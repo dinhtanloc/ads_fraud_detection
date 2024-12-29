@@ -1,12 +1,13 @@
 from libs.common import *
 
 class InceptionV3_1D:
-    def __init__(self, input_shape=(39, 1)):
+    def __init__(self, input_shape=(39, 1), features=False):
         self.input_shape = input_shape
+        self.features = features
         self.model = self.build_model()
 
     def conv1d_bn(self, x, filters, kernel_size, padding='same', strides=1, name=None):
-       if name is not None:
+        if name is not None:
             bn_name = name + '_bn'
             conv_name = name + '_conv'
         else:
@@ -130,7 +131,10 @@ class InceptionV3_1D:
             [branch1x1, branch7x7, branch7x7dbl, branch_pool],
             axis=channel_axis,
             name='mixed7')
-        self.features = x
+        if self.features:
+            features=x
+            model = Model(x_input, features, name='InceptionV3_1D')
+            return model
 
         x = GlobalAveragePooling1D()(x)
         x = Dense(128, activation='relu')(x)

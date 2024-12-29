@@ -271,3 +271,12 @@ from keras.layers import Dense, Dropout
 from lightgbm import LGBMClassifier
 from xgboost import XGBClassifier
 from scipy import sparse
+import warnings
+import numpy as np
+
+from keras.layers import Input, Conv1D, BatchNormalization, Activation, Dropout, Reshape, GlobalAveragePooling1D,MaxPooling1D,Dense,AveragePooling1D
+from keras.models import Model
+from keras import layers
+
+from keras.layers import Layer
+from keras import backend as K

@@ -1,10 +1,11 @@
 from libs.common import *
 
 class InceptionV2_1D:
-    def __init__(self, input_shape, num_classes, dropout_rate=0.5):
+    def __init__(self, input_shape, num_classes=2, dropout_rate=0.5,features=False):
         self.input_shape = input_shape
         self.num_classes = num_classes
         self.dropout_rate = dropout_rate
+        self.features = features
         self.model = self.build_model()
 
     def conv1d_bn(self, x,
@@ -14,18 +15,18 @@ class InceptionV2_1D:
               padding='same',
               activation='relu',
               name=None):
-    bn_axis=1
-    x = Conv1D(filters,
-               kernel_size,
-               strides=strides,
-               padding=padding,
-               name=name)(x)
-    bn_name = None if name is None else name + '_bn'
-    x = BatchNormalization(axis=bn_axis, scale=False, name=bn_name)(x)
-    if activation is not None:
-        ac_name = None if name is None else name + '_ac'
-        x = Activation(activation, name=ac_name)(x)
-    return x
+        bn_axis=1
+        x = Conv1D(filters,
+                kernel_size,
+                strides=strides,
+                padding=padding,
+                name=name)(x)
+        bn_name = None if name is None else name + '_bn'
+        x = BatchNormalization(axis=bn_axis, scale=False, name=bn_name)(x)
+        if activation is not None:
+            ac_name = None if name is None else name + '_ac'
+            x = Activation(activation, name=ac_name)(x)
+        return x
 
 
     def adjust_padding(self, branches):
@@ -118,7 +119,7 @@ class InceptionV2_1D:
 
 
     def build_model(self):
-        inputs = Input(shape=self.input_shape)
+        x_input = Input(shape=self.input_shape)
 
         # Stem block: 35 x 35 x 192
         x = self.conv1d_bn(x_input, 16, 3, strides=2, padding='valid')
@@ -193,7 +194,10 @@ class InceptionV2_1D:
 
         # Final convolution block: 8 x 8 x 1536
         x = self.conv1d_bn(x, 1536, 1, name='conv_7b')
-        self.features = x
+        if self.features:
+            features = x
+            model = Model(x_input, features, name='inception_resnet_v2')
+            return model
         x = GlobalAveragePooling1D(name='avg_pool')(x)
         x = Dense(2, activation='softmax', name='predictions')(x)
 
