@@ -35,13 +35,13 @@ class VGG16_1D:
         x = Conv1D(self.filter_size * 8, self.kernel_size, activation='relu', padding='same', name='block5_conv2')(x)
         x = Conv1D(self.filter_size * 8, self.kernel_size, activation='relu', padding='same', name='block5_conv3')(x)
         x = MaxPooling1D(2, strides=2, name='block5_pool')(x)
+
+        x = GlobalAveragePooling1D()(x)
         if self.features:
             features = x
             print(f"features shape: {features.shape}")
             model = Model(x_input, features, name='vgg16_1d')
             return model
-
-        x = GlobalAveragePooling1D()(x)
         x = Dense(2, activation='softmax', name='predictions')(x)
 
         model = Model(x_input, x, name='vgg16_1d')
