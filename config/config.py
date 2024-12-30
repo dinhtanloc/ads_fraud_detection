@@ -1,5 +1,7 @@
 import os, sys
+import tensorflow as tf
 seed=42
+tf.random.set_seed(seed)
 __script_path=os.path.abspath(globals().get('__file__','.'))
 __script_dir = os.path.dirname(__script_path)
 root_dir = os.path.abspath(os.path.dirname(f'{__script_dir}')).replace("\\", "/")
