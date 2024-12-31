@@ -131,6 +131,7 @@ class InceptionV3_1D:
             [branch1x1, branch7x7, branch7x7dbl, branch_pool],
             axis=channel_axis,
             name='mixed7')
+        x = GlobalAveragePooling1D()(x)
         if self.features:
             features=x
             model = Model(x_input, features, name='InceptionV3_1D')
