@@ -194,11 +194,11 @@ class InceptionV2_1D:
 
         # Final convolution block: 8 x 8 x 1536
         x = self.conv1d_bn(x, 1536, 1, name='conv_7b')
+        x = GlobalAveragePooling1D(name='avg_pool')(x)
         if self.features:
             features = x
             model = Model(x_input, features, name='inception_resnet_v2')
             return model
-        x = GlobalAveragePooling1D(name='avg_pool')(x)
         x = Dense(2, activation='softmax', name='predictions')(x)
 
     
