@@ -31,7 +31,7 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.losses import categorical_crossentropy
 from tensorflow.keras import backend as K
 from tensorflow.keras.optimizers import Adam
-
+from tensorflow.keras.layers import Concatenate
 
 import os, sys
 import pandas as pd
