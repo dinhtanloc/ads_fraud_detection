@@ -53,6 +53,7 @@ from sklearn.metrics import (
     accuracy_score, auc, classification_report, confusion_matrix,
     precision_recall_curve, precision_score, recall_score, roc_curve
 )
+from sklearn.utils.class_weight import compute_class_weight
 from sklearn.model_selection import (
     GridSearchCV, KFold, RandomizedSearchCV, StratifiedKFold,
     train_test_split, cross_val_score, learning_curve
