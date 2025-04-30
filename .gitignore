@@ -9,3 +9,6 @@ __pyache__
 *.h5
 *.keras
 *.pkl
+
+*.ckpt
+*.csv
