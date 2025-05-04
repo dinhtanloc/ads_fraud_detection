@@ -100,7 +100,7 @@ class BasePreProcessor(ABC):
 
     def _download_kaggle_data_from_datasets_with_given_filename(self):
         file_name = KAGGLE_CONFIGS[self.key][_FILENAME]
-        response = kaggle.api.datasets_download_file(
+        response = kaggle.api.dataset_download_file(
             owner_slug = KAGGLE_CONFIGS[self.key][_OWNER],
             dataset_slug = KAGGLE_CONFIGS[self.key][_DATASET],
             file_name = file_name,
