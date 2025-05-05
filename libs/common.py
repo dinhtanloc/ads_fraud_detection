@@ -28,7 +28,7 @@ from keras import backend as K, layers, models
 from keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau
 from keras.layers import *
 from keras.models import Model, Sequential
-from keras.preprocessing.sequence import pad_sequences
+# from keras.preprocessing.sequence import pad_sequences
 from keras.regularizers import l2
 from lightgbm import LGBMClassifier
 from nltk.stem import PorterStemmer, WordNetLemmatizer
