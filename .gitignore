@@ -12,3 +12,4 @@ __pyache__
 
 *.ckpt
 *.csv
+tabnet-keras/
